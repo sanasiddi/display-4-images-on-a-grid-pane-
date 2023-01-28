@@ -1,0 +1,69 @@
+/*
+14.1 (Display images) Write a program that displays four images in 
+a grid pane.
+ */
+    package exercise14;
+
+    import javafx.application.Application;
+    import javafx.geometry.HPos;//horizontal position
+    import javafx.geometry.Insets;
+    import javafx.geometry.Pos;//short form of position
+    import javafx.scene.Scene;
+    import javafx.scene.layout.GridPane;
+    import javafx.scene.image.Image;
+    import javafx.scene.image.ImageView;
+    import javafx.stage.Stage;
+
+    public class Exercise14 extends Application  {
+
+
+        @Override
+        public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("Display 4 images");
+
+        GridPane gridPane = new GridPane();
+        
+
+        gridPane.setPadding(new Insets(10,10,10,10));//padding size
+        gridPane.setHgap( 8 );
+        gridPane.setVgap( 8 );
+        
+        GridPane pane = new GridPane();
+        Image image = new Image("ca.gif");//this is how to put image
+        Image image1 = new Image("china.gif");
+        Image image2 = new Image("uk.gif");
+        Image image3 = new Image("us.gif");
+
+        
+
+        ImageView imageView1 = new ImageView(image);//pass image by imageView constructor
+        imageView1.setFitHeight(100);
+        imageView1.setFitWidth(200);
+        
+        ImageView imageView2 = new ImageView(image1);
+        imageView2.setFitHeight(100);
+        imageView2.setFitWidth(200);
+        
+        ImageView imageView3 = new ImageView(image2);
+        imageView3.setFitHeight(100);
+        imageView3.setFitWidth(200);
+        
+        ImageView imageView4 = new ImageView(image3);
+        imageView4.setFitHeight(100);
+        imageView4.setFitWidth(200);
+        
+        gridPane.add(imageView1, 0, 0);//add image on a pane
+        gridPane.add(imageView2, 1, 0);
+        gridPane.add(imageView3, 0, 1);
+        gridPane.add(imageView4, 1, 1);
+       
+
+        Scene scene = new Scene(gridPane, 430, 230);//width size and height size
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        Application.launch(args);
+    }
+}
